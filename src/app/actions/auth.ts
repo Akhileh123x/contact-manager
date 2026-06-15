@@ -9,38 +9,26 @@ import { createUser } from "../api/user";
 const API_URL = "http://localhost:3001";
 
 export async function loginAction(formData: FormData) {
-  try {
-    const email = String(formData.get("email")).trim();
-    const password = String(formData.get("password")).trim();
+  const email = String(formData.get("email")).trim();
+  const password = String(formData.get("password")).trim();
 
-    const response = await axios.get(`${API_URL}/users`);
+  const response = await axios.get(`${API_URL}/users`);
 
-   const user = response.data.find(
-      (user: UserType) =>
-        user.email === email &&
-        user.password === password
-    );
+  const user = response.data.find(
+    (user: UserType) =>
+      user.email === email &&
+      user.password === password
+  );
 
-    if (!user) {
-      return {
-        error: "Invalid email or password",
-      };
-    }
-// set user in the cookies
-// 
-await setSession({
-  id: user.id,
-  name: user.name,
-  email: user.email,
-});
-
-  } catch (error) {
-    console.error(error);
-
-    return {
-      error: "Something went wrong",
-    };
+  if (!user) {
+    throw new Error("Invalid email or password");
   }
+
+  await setSession({
+    id: user.id,
+    name: user.name,
+    email: user.email,
+  });
 
   redirect("/contact");
 }
