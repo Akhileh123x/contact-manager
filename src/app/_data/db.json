@@ -1,0 +1,33 @@
+{
+  "contacts": [
+    {
+      "name": "Aswini Rajesh",
+      "email": "akhiluxz@gmail.com",
+      "phone": "8590140226",
+      "company": "Microsoft",
+      "address": "Bangalore, Karnataka",
+      "notes": "-",
+      "userId": "OX8v1zCmil8",
+      "id": "GQRh2-cKSzg"
+    },
+    {
+      "id": "eu6SmX5dsc4",
+      "name": "new user updated 2",
+      "email": "sahil@gmail.com",
+      "phone": "+91 9876543211",
+      "company": "tcs",
+      "address": "Perugudi Chennai",
+      "notes": "-",
+      "userId": "OX8v1zCmil8"
+    }
+  ],
+  "users": [
+    {
+      "name": "Akhilesh R",
+      "email": "akhilesh@gmail.com",
+      "password": "akhilesh",
+      "id": "OX8v1zCmil8"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
